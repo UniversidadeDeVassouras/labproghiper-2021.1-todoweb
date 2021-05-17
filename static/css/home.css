@@ -1,0 +1,40 @@
+body {
+
+}
+
+h1 {
+    color: #0F2625;
+    font-size: 24px;
+}
+
+h2 {
+    color: #0F2625;
+    font-size: 18px;
+}
+
+#formulario-todo {
+    background-color: #BDDFB3;
+    border-radius: 10px;
+    border-color: #465F3F;
+    border-style: solid;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.todo {
+    background-color: #BDDFB3;
+    border-radius: 10px;
+    border-color: #465F3F;
+    border-style: solid;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.todo > article {
+    color: #2F2E2E;
+}
+
+.todo > header > p {
+    color: #465F3F;
+    font-weight: bolder;
+}

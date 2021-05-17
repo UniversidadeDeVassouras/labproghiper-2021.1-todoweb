@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meus ToDos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+</head>
+<body>
+    <h1>Cadastro de ToDos</h1>
+    <section id="formulario-todo">
+        <form action="{{ url_for('inserir')}}" method="post" enctype="application/x-www-form-urlencoded">
+            <label for="todo-titulo">Título:</label>
+            <input id="todo-titulo" type="text" name="titulo">
+            <label for="todo-data">Data:</label>
+            <input id="todo-data" type="datetime-local" name="data"/>
+            <label for="todo-descricao">Descrição</label>
+            <textarea id="todo-descricao" name="descricao"></textarea>
+            <input type="submit">
+        </form>
+    </section>
+    <h1>Lista de ToDos</h1>
+    <section id="lista-todos">
+        {% for todo in todo_list %}
+            <section class="todo" id="todo-{{ todo.id }}">
+                 <header>
+                     <h2>{{ todo.titulo }}</h2>
+                     <p>{{ todo.data }}</p>
+                 </header>
+                 <article>{{ todo.descricao }}</article>
+            </section>
+        {% endfor %}
+    </section>
+</body>
+</html>
