@@ -62,3 +62,14 @@ footer {
     border-style: solid;
     padding: 5px;
 }
+
+.botao-atualizar {
+    color: #0F2625;
+    font-style: normal;
+    text-decoration: none;
+    background-color: #2BAA9C;
+    border-radius: 10px;
+    border-color: #2BAA9C;
+    border-style: solid;
+    padding: 5px;
+}
