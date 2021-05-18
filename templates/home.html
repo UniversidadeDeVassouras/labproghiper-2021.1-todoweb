@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Cadastro de ToDos</h1>
-    <section id="formulario-todo">
+    <section id="formulario-insercao-todo">
         <form action="{{ url_for('inserir')}}" method="post" enctype="application/x-www-form-urlencoded">
             <label for="todo-titulo">Título:</label>
             <input id="todo-titulo" type="text" name="titulo">
@@ -19,6 +19,13 @@
         </form>
     </section>
     <h1>Lista de ToDos</h1>
+    <section id="formulario-busca-todo">
+        <form action="{{ url_for('busca') }}" method="get" enctype="application/x-www-form-urlencoded">
+            <label for="todo-palavrachave">Busca:</label>
+            <input type="text" id ='todo-palavrachave' name="palavra_chave" value="{{ palavra_chave if palavra_chave != None else '' }}">
+            <input type="submit" />
+        </form>
+    </section>
     <section id="lista-todos">
         {% for todo in todo_list %}
             <section class="todo" id="todo-{{ todo.id }}">

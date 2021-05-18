@@ -12,7 +12,16 @@ h2 {
     font-size: 18px;
 }
 
-#formulario-todo {
+#formulario-busca-todo {
+    background-color: #BDDFB3;
+    border-radius: 10px;
+    border-color: #465F3F;
+    border-style: solid;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#formulario-insercao-todo {
     background-color: #BDDFB3;
     border-radius: 10px;
     border-color: #465F3F;
