@@ -27,6 +27,9 @@
                      <p>{{ todo.data }}</p>
                  </header>
                  <article>{{ todo.descricao }}</article>
+                 <footer>
+                     <a class="botao-excluir" href="{{ url_for('excluir', id=todo.id) }}">Excluir</a>
+                 </footer>
             </section>
         {% endfor %}
     </section>

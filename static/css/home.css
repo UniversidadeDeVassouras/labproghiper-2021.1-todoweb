@@ -38,3 +38,18 @@ h2 {
     color: #465F3F;
     font-weight: bolder;
 }
+
+footer {
+    margin-top: 20px
+}
+
+.botao-excluir {
+    color: #0F2625;
+    font-style: normal;
+    text-decoration: none;
+    background-color: #2BAA9C;
+    border-radius: 10px;
+    border-color: #2BAA9C;
+    border-style: solid;
+    padding: 5px;
+}
