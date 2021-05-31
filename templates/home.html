@@ -8,7 +8,7 @@
 <body>
     <h1>Cadastro de ToDos</h1>
     <section id="formulario-insercao-todo">
-        <form action="{{ url_for('inserir')}}" method="post" enctype="application/x-www-form-urlencoded">
+        <form action="{% if todo_atualizar %}{{ url_for('atualizar', id=todo_atualizar.id) }}{% else %}{{ url_for('inserir')}}{% endif %}" method="post" enctype="application/x-www-form-urlencoded">
             <label for="todo-titulo">Título:</label>
             <input id="todo-titulo" type="text" name="titulo" value="{% if todo_atualizar %}{{ todo_atualizar.titulo }}{% else %} {{ '' }} {% endif %}">
             <label for="todo-data">Data:</label>

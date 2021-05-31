@@ -23,7 +23,7 @@ class ToDo:
 
     @titulo.setter
     def titulo(self, value):
-        self.__titulo
+        self.__titulo = value
 
     @property
     def descricao(self):
