@@ -20,7 +20,7 @@
     </section>
     <h1>Lista de ToDos</h1>
     <section id="formulario-busca-todo">
-        <form action="{{ url_for('busca') }}" method="get" enctype="application/x-www-form-urlencoded">
+        <form action="{{ url_for('busca') }}" method="get" enctype="application/x-www-form-urlencoded" onsubmit="return buscar()">
             <label for="todo-palavrachave">Busca:</label>
             <input type="text" id ='todo-palavrachave' name="palavra_chave" value="{{ palavra_chave if palavra_chave != None else '' }}">
             <input type="submit" />
@@ -37,8 +37,22 @@
         xhr.send(null);
         xhr.onreadystatechange = function() {
             if(xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById("lista-todos").innerHTML = xhr.response
+                document.getElementById("lista-todos").innerHTML = xhr.response;
             }
+        }
+
+        function buscar() {
+            palavraChave = document.getElementById("todo-palavrachave").value;
+            xhr = new XMLHttpRequest();
+            xhr.open("GET", "/busca?palavra_chave=" + palavraChave);
+            xhr.send(null);
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("lista-todos").innerHTML = xhr.response;
+                }
+            }
+
+            return false;
         }
     </script>
 </body>
