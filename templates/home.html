@@ -32,14 +32,12 @@
         </section>
     </section>
     <script>
-        window.onload = function() {
-            xhr = new XMLHttpRequest();
-            xhr.open("GET", "/list");
-            xhr.send(null);
-            xhr.onreadystatechange = function() {
-                if(xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById("lista-todos").innerHTML = xhr.response
-                }
+        xhr = new XMLHttpRequest();
+        xhr.open("GET", "/list");
+        xhr.send(null);
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById("lista-todos").innerHTML = xhr.response
             }
         }
     </script>
