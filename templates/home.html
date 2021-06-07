@@ -27,19 +27,21 @@
         </form>
     </section>
     <section id="lista-todos">
-        {% for todo in todo_list %}
-            <section class="todo" id="todo-{{ todo.id }}">
-                 <header>
-                     <h2>{{ todo.titulo }}</h2>
-                     <p>{{ todo.data }}</p>
-                 </header>
-                 <article>{{ todo.descricao }}</article>
-                 <footer>
-                     <a class="botao-excluir" href="{{ url_for('excluir', id=todo.id) }}">Excluir</a>
-                     <a class="botao-atualizar" href="{{ url_for('atualizar', id=todo.id) }}">Atualizar</a>
-                 </footer>
-            </section>
-        {% endfor %}
+        <section class="todo">
+            <p>Carregando ToDos a serem resolvidos...</p>
+        </section>
     </section>
+    <script>
+        window.onload = function() {
+            xhr = new XMLHttpRequest();
+            xhr.open("GET", "/list");
+            xhr.send(null);
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("lista-todos").innerHTML = xhr.response
+                }
+            }
+        }
+    </script>
 </body>
 </html>
