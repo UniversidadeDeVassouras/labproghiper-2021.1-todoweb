@@ -37,7 +37,7 @@ def inserir():
     id = len(todo_list) + 1
     todo = ToDo(id, titulo, descricao, data)
     todo_list.append(todo)
-    return render_template("home.html", todo_list=todo_list)
+    return render_template("todolist.html", todo_list=todo_list)
 
 
 @app.route("/excluir/<int:id>", methods=['GET'])

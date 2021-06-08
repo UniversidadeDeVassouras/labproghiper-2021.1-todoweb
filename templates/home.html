@@ -8,7 +8,7 @@
 <body>
     <h1>Cadastro de ToDos</h1>
     <section id="formulario-insercao-todo">
-        <form action="{% if todo_atualizar %}{{ url_for('atualizar', id=todo_atualizar.id) }}{% else %}{{ url_for('inserir')}}{% endif %}" method="post" enctype="application/x-www-form-urlencoded">
+        <form id="form-inserir" action="{% if todo_atualizar %}{{ url_for('atualizar', id=todo_atualizar.id) }}{% else %}{{ url_for('inserir')}}{% endif %}" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return inserir()">
             <label for="todo-titulo">Título:</label>
             <input id="todo-titulo" type="text" name="titulo" value="{% if todo_atualizar %}{{ todo_atualizar.titulo }}{% else %} {{ '' }} {% endif %}">
             <label for="todo-data">Data:</label>
@@ -52,6 +52,20 @@
                 }
             }
 
+            return false;
+        }
+
+        function inserir() {
+            xhr = new XMLHttpRequest();
+            xhr.open("POST", "/inserir");
+            formularioHtml = document.getElementById("form-inserir")
+            formData = new FormData(formularioHtml);
+            xhr.send(formData);
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("lista-todos").innerHTML = xhr.response;
+                }
+            }
             return false;
         }
     </script>
