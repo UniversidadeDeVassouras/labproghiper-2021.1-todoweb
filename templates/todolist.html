@@ -6,7 +6,9 @@
         </header>
         <article>{{ todo.descricao }}</article>
         <footer>
-            <a class="botao-excluir" href="{{ url_for('excluir', id=todo.id) }}">Excluir</a>
+            <!--<button id="botao-excluir" onclick="excluir({{ todo.id }})" class="botao-excluir">Excluir</button>-->
+            <!--<a id="botao-excluir" href="javascript:excluir({{ todo.id }})" class="botao-excluir">Excluir</a>-->
+            <a id="botao-excluir" onclick="excluir({{ todo.id }})" class="botao-excluir">Excluir</a>
             <a class="botao-atualizar" href="{{ url_for('atualizar', id=todo.id) }}">Atualizar</a>
         </footer>
     </section>

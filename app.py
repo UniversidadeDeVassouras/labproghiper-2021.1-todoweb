@@ -40,14 +40,14 @@ def inserir():
     return render_template("todolist.html", todo_list=todo_list)
 
 
-@app.route("/excluir/<int:id>", methods=['GET'])
+@app.route("/excluir/<int:id>", methods=['DELETE'])
 def excluir(id: int):
     time.sleep(10)
     for todo in todo_list:
         if todo.id == id:
             todo_list.remove(todo)
-            return render_template("home.html", todo_list=todo_list)
-    return render_template("home.html", todo_list=todo_list), 404
+            return render_template("todolist.html", todo_list=todo_list)
+    return render_template("todolist.html", todo_list=todo_list), 404
 
 
 @app.route("/busca")
